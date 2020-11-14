@@ -13,10 +13,10 @@ class Track extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({ visible: true });
-    }, (this.props.offset) * 1000);
+    }, 0);
     setTimeout(() => {
       this.setState({ visible: false })
-    }, ( this.props.offset + this.props.duration ) * 1000);
+    }, this.props.duration * 1000);
   }
 
   render() {
@@ -26,7 +26,6 @@ class Track extends React.Component {
       covers.push(
         <Cover
           key={n}
-          track={this.props.track}
           sample={this.props.sampleCount - n}
           samples={this.props.sampleCount}
           backward={n % 2 === 0}

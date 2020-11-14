@@ -8,30 +8,13 @@ import TrackOverlay from './TrackOverlay';
 
 import './App.css';
 
-const SAMPLE_COUNTS = [8, 9, 6, 7, 4, 3, 9, 4, 8, 8, 5, 6, 5, 5, 8, 6, 10];
-const DURATIONS = [84, 145, 96, 124, 81, 46, 83, 128, 151, 152, 119, 137, 147, 135, 129, 123, 192];
-// const DURATIONS = [10, 10, 96, 124, 80, 46, 83, 128, 150, 152, 119, 137, 147, 135, 129, 123, 192];
+const SAMPLE_COUNT = 8;
+const DURATION = 84;
 
 function App() {
   const [playing, setPlaying] = useState(false);
-  const [track, setTrack] = useState(0);
 
-
-  const startTrackTimer = (trackNumber) => {
-    setTimeout(() => {
-      if (trackNumber === DURATIONS.length - 1) {
-        return;
-      }
-      setTrack(trackNumber + 1);
-      startTrackTimer(trackNumber + 1);
-    }, (DURATIONS[trackNumber]) * 1000);
-  };
-
-  if (playing && track === 0) {
-    startTrackTimer(track);
-  }
-
-  const escFunction = useCallback((event) => {
+  const playFunction = useCallback((event) => {
     if(event.keyCode === 32) {
       event.preventDefault();
       setPlaying(true);
@@ -39,26 +22,19 @@ function App() {
   }, []);
 
   useEffect(() => {
-    document.addEventListener("keydown", escFunction, false);
+    document.addEventListener("keydown", playFunction, false);
 
     return () => {
-      document.removeEventListener("keydown", escFunction, false);
+      document.removeEventListener("keydown", playFunction, false);
     };
   }, [escFunction]);
 
-  let tracks = [];
-
-  _.each(SAMPLE_COUNTS, (count, i) => {
-   tracks.push((
-      <Track
-        key={i}
-        track={i + 1}
-        sampleCount={count}
-        duration={DURATIONS[i]}
-        offset={_.sum(DURATIONS.slice(0, i))}
-      />
-    ));
-  });
+  const track = (
+    <Track
+      sampleCount={SAMPLE_COUNT}
+      duration={DURATION}
+    />
+  );
 
   return (
     <div className="App">
@@ -70,12 +46,11 @@ function App() {
       </div>
       <div className="moon-container">
         <div className="track-container">
-          {playing ? tracks : null}
+          {playing ? track : null}
         </div>
-        <img className="moon" src="/moon2back2.png" />
       </div>
       <TextOverlay />
-      <TrackOverlay track={track} />
+      <TrackOverlay title="1. Wokeuplikerick" />
     </div>
   );
 }

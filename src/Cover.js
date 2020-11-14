@@ -62,7 +62,7 @@ function Cover(props) {
     <FadeContainer>
     <SpinContainer>
       <img
-        src={`/covers/${props.track}/${props.sample}.jpg`}
+        src={`/covers/${props.sample}.jpg`}
         className="cover"
         style={{
           transform: `rotate(${(360 / props.samples) * props.sample}deg)`,
