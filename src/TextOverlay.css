@@ -1,0 +1,27 @@
+.text-container {
+  position: absolute;
+  font-size: 3rem;
+  top: 401px;
+  left: 370px;
+  z-index: 10;
+}
+
+.artist, .album {
+  font-family: 'Bungee Hairline', cursive;
+  line-height: 0.75;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: -5px;
+}
+
+.text-black {
+  color: black;
+}
+
+.text-white {
+  color: white;
+}
+
+.artist {
+  padding-left: 106px;
+}

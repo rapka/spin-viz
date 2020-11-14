@@ -1,0 +1,106 @@
+.App {
+  max-width: 1920px;
+  max-height: 1080px;
+  overflow: hidden;
+  height: 100vh;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ALBUM ART SQUARE GRID */
+/*
+.App::after {
+  content: '';
+  width: 1080px;
+  border-right: 1px solid red;
+  height: 1080px;
+  position: absolute;
+  top: 0;
+}*/
+
+.bg, .bg2, .bg3 {
+  position: absolute;
+  animation-name: glimmer;
+  animation-duration: 33s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.bg2 {
+  transform: translateX(calc(-100% + 1px));
+}
+
+
+.bg3 {
+  transform: translateX(calc(100% - 1px));
+}
+
+.bg-container {
+
+  z-index: -1;
+  animation-name: slide;
+  animation-duration: 666s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.moon {
+  z-index: 3;
+  width: 600px;
+  height: 600px;
+  display: block;
+  filter: opacity(0.4) contrast(1.5);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* MOON TEXT ALIGNMENT GRID */
+/*
+.moon-container::after {
+  content: '';
+  width: 600px;
+  height: 300px;
+  border: 1px red solid;
+  display: block;
+  position: absolute;
+  top: 135px;
+  left: 75px;
+}*/
+
+.track-container {
+  background: black;
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  border-radius: 50%;
+  transform: translate3d(0, 0, 0);
+}
+
+.moon-container {
+  padding: 135px 75px;
+}
+
+@keyframes glimmer {
+  0% {
+    filter: brightness(0.8);
+  }
+
+  50% {
+    filter: brightness(2.5);
+  }
+
+  100% {
+    filter: brightness(0.8);
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translate3d(5321px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-5321px, 0, 0);
+  }
+}
