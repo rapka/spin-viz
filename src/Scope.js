@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import hexRgb from 'hex-rgb';
 import hsvToRgb from './util/hsvToRgb';
 import times from 'lodash/times';
@@ -103,8 +104,6 @@ class Scope extends React.Component {
 
         canvasCtx.stroke();
       });
-
-      // let H2 = (H + 180) % 360;
     };
 
     draw();
@@ -125,11 +124,18 @@ class Scope extends React.Component {
   }
 }
 
+Scope.propTypes = {
+  scopeCount: PropTypes.number, // number of lines to draw
+  rotateColors: PropTypes.bool // flag to automatically cycle through the rainbow
+  rotationOffset: PropTypes.number // when rotateColors is true, hue offset between different scopes (in degrees)
+  scopeColors: PropTypes.arrayOf(PropTypes.string), // when rotateColors is false, static color for each scope
+};
+
 Scope.defaultProps = {
   scopeCount: 2,
   rotateColors: true,
   rotationOffset: 180,
-  scopeColors: ['#FFFFFF', '#FFFFFF']
+  scopeColors: ['#FFFFFF', '#FFFFFF'],
 }
 
 export default Scope;
