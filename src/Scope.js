@@ -1,32 +1,13 @@
 import React from 'react';
+import hexRgb from 'hex-rgb';
+import hsvToRgb from './util/hsvToRgb';
+import times from 'lodash/times';
 
 import './Scope.css';
 
 let WIDTH = 1920 / 2;
 let HEIGHT = 1080;
 let H = 0;
-
-const hsvToRgb = (h, s, v) => {
-    var r, g, b;
-
-    var i = Math.floor(h * 6);
-    var f = h * 6 - i;
-    var p = v * (1 - s);
-    var q = v * (1 - f * s);
-    var t = v * (1 - (1 - f) * s);
-
-    switch(i % 6){
-        case 0: r = v; g = t; b = p; break;
-        case 1: r = q; g = v; b = p; break;
-        case 2: r = p; g = v; b = t; break;
-        case 3: r = p; g = q; b = v; break;
-        case 4: r = t; g = p; b = v; break;
-        case 5: r = v; g = p; b = q; break;
-    }
-
-    return [r * 255, g * 255, b * 255];
-};
-
 
 class Scope extends React.Component {
   constructor(props) {
@@ -43,7 +24,6 @@ class Scope extends React.Component {
       this.audioCtx.resume().then(() => {
         this.player.current.play();
       });
-
     }
   }
 
@@ -95,53 +75,36 @@ class Scope extends React.Component {
       canvasCtx.fillStyle = 'rgba(200, 200, 200, 0)';
       canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
       canvasCtx.lineWidth = Math.max(bassValue / 100, 2);
-      let rgb = hsvToRgb((H / 360),1 , 1);
 
       const Y_OFFSET = 64;
 
-      canvasCtx.strokeStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${0.8 - bassNormalized * 1.33})`;
-      canvasCtx.beginPath();
-      var sliceWidth = WIDTH * 1.0 / bufferLength;
-      let x = 0;
-      let y = 0;
-      let v = 0;
+      times(this.props.scopeCount, index => {
+        const rotatedH = ((H + this.props.rotationOffset) * index) % 360;
+        let rgb = hsvToRgb((rotatedH / 360),1 , 1);
+        canvasCtx.strokeStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${0.8 - bassNormalized * 1.33})`;
+        canvasCtx.beginPath();
+        const sliceWidth = WIDTH * 1.0 / bufferLength;
+        let x = 0;
+        let y = 0;
+        let v = 0;
 
-      for(let i = 0; i < bufferLength; i++) {
-        v = dataArray[i] / 128.0;
-        y = v * HEIGHT / 4;
+        for(let i = 0; i < bufferLength; i++) {
+          v = dataArray[i] / 128.0;
+          y = v * HEIGHT / 4;
 
-        if(i === 0) {
-          canvasCtx.moveTo(x, y + Y_OFFSET);
-        } else {
-          canvasCtx.lineTo(x, y + Y_OFFSET);
+          if(i === 0) {
+            canvasCtx.moveTo(x, y + (Y_OFFSET - index * 5));
+          } else {
+            canvasCtx.lineTo(x, y + (Y_OFFSET - index * 5));
+          }
+
+          x += sliceWidth;
         }
 
-        x += sliceWidth;
-      }
+        canvasCtx.stroke();
+      });
 
-      canvasCtx.stroke();
-
-      let H2 = (H + 180) % 360;
-      rgb = hsvToRgb((H2 / 360),1 , 1);
-
-      canvasCtx.strokeStyle = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${0.8 - bassNormalized * 1.33})`;
-      canvasCtx.beginPath();
-      x = 0;
-
-      for(let i = 0; i < bufferLength; i++) {
-        v = dataArray[i] / 128.0;
-        y = v * HEIGHT / 4;
-
-        if(i === 0) {
-          canvasCtx.moveTo(x, y + + Y_OFFSET - 5);
-        } else {
-          canvasCtx.lineTo(x, y + Y_OFFSET - 5);
-        }
-
-        x += sliceWidth;
-      }
-
-       canvasCtx.stroke();
+      // let H2 = (H + 180) % 360;
     };
 
     draw();
@@ -160,7 +123,13 @@ class Scope extends React.Component {
       </div>
     );
   }
+}
 
+Scope.defaultProps = {
+  scopeCount: 2,
+  rotateColors: true,
+  rotationOffset: 180,
+  scopeColors: ['#FFFFFF', '#FFFFFF']
 }
 
 export default Scope;
