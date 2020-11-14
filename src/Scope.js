@@ -81,8 +81,17 @@ class Scope extends React.Component {
 
       times(this.props.scopeCount, index => {
         const rotatedH = ((H + this.props.rotationOffset) * index) % 360;
+
         let rgb = hsvToRgb((rotatedH / 360),1 , 1);
-        canvasCtx.strokeStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${0.8 - bassNormalized * 1.33})`;
+
+        if (this.props.rotateColors) {
+          rgb = hsvToRgb((rotatedH / 360),1 , 1);
+          canvasCtx.strokeStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${0.8 - bassNormalized * 1.33})`;
+        } else {
+          rgb = hexRgb(this.props.scopeColors[index]);
+          canvasCtx.strokeStyle = `rgba(${rgb.red}, ${rgb.green}, ${rgb.blue}, ${0.8 - bassNormalized * 1.33})`;
+        }
+
         canvasCtx.beginPath();
         const sliceWidth = WIDTH * 1.0 / bufferLength;
         let x = 0;
@@ -126,8 +135,8 @@ class Scope extends React.Component {
 
 Scope.propTypes = {
   scopeCount: PropTypes.number, // number of lines to draw
-  rotateColors: PropTypes.bool // flag to automatically cycle through the rainbow
-  rotationOffset: PropTypes.number // when rotateColors is true, hue offset between different scopes (in degrees)
+  rotateColors: PropTypes.bool, // flag to automatically cycle through the rainbow
+  rotationOffset: PropTypes.number, // when rotateColors is true, hue offset between different scopes (in degrees)
   scopeColors: PropTypes.arrayOf(PropTypes.string), // when rotateColors is false, static color for each scope
 };
 

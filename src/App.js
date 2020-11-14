@@ -1,15 +1,13 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import _ from 'lodash'
+import set from 'lodash/set';
 
 import Track from './Track';
 import Scope from './Scope';
 import TextOverlay from './TextOverlay';
-import TrackOverlay from './TrackOverlay';
+
+import config from './config';
 
 import './App.css';
-
-const SAMPLE_COUNT = 8;
-const DURATION = 84;
 
 function App() {
   const [playing, setPlaying] = useState(false);
@@ -29,28 +27,39 @@ function App() {
     };
   }, [playFunction]);
 
-  const track = (
-    <Track
-      sampleCount={SAMPLE_COUNT}
-      duration={DURATION}
-    />
-  );
+  const { artist, title, background } = config;
+
+  const bgStyles = {};
+  const bgContainerStyles = {};
+
+  set(bgContainerStyles, 'animationDuration', `${background.loopSpeed}s`, '0s');
+
+  if (background.css) {
+    bgStyles.background = background.css;
+  } else {
+    set(bgStyles, 'backgroundColor', background.color, undefined);
+    set(bgStyles, 'backgroundImage', `url('/${background.color})`, undefined);
+  }
+
+  console.log('bgggg', bgStyles);
 
   return (
     <div className="App">
       <Scope playing={playing} />
-      <div className="bg-container">
-        <img className="bg" src="/bg-repeat.png" />
-        <img className="bg2" src="/bg-repeat.png" />
-        <img className="bg3" src="/bg-repeat.png" />
+      <div className={`bg-container ${background.loopSpeed ? 'bg-loop' : ''}`} style={bgContainerStyles}>
+        <div className="bg" style={bgStyles} />
+        <div className="bg bg2" style={bgStyles} />
+        <div className="bg bg3" style={bgStyles} />
       </div>
       <div className="moon-container">
         <div className="track-container">
-          {playing ? track : null}
+          {playing ? <Track duration={config.duration} /> : null}
         </div>
       </div>
-      <TextOverlay />
-      <TrackOverlay title="1. Wokeuplikerick" />
+      <TextOverlay
+        artist={artist}
+        title={title}
+      />
     </div>
   );
 }

@@ -20,15 +20,8 @@ class Track extends React.Component {
   }
 
   render() {
-
-
     return this.state.visible ? (
-      <div
-        className="track"
-        style={{
-          // display: this.state.visible ? 'block' : 'none',
-        }}
-      >
+      <div className="track">
         <Cover />
         <div className="transition-overlay"
           style={{

@@ -1,20 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './TextOverlay.css';
 
-function TextOverlay(props) {
+const TextOverlay = (props) => {
   return (
     <div className="text-container">
       <div className="artist">
-        <span className="text-black">College</span>
-        <span className="text-white"> Hill</span>
+        <span className="text-white">{props.artist}</span>
       </div>
       <div className="album">
-        <span className="text-black">Overground</span>
-        <span className="text-white"> Underground</span>
+        <span className="text-white">{props.title}</span>
       </div>
     </div>
   );
+}
+
+TextOverlay.propTypes = {
+  artist: PropTypes.string,
+  title: PropTypes.string,
+};
+
+TextOverlay.defaultProps = {
+  artist: '',
+  title: '',
 }
 
 export default TextOverlay;
