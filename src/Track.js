@@ -1,7 +1,7 @@
 import React from 'react';
-import _ from 'lodash'
 
 import Cover from './Cover';
+
 import './Track.css';
 
 class Track extends React.Component {
@@ -20,18 +20,7 @@ class Track extends React.Component {
   }
 
   render() {
-    let covers = [];
 
-    _.times(this.props.sampleCount, n => {
-      covers.push(
-        <Cover
-          key={n}
-          sample={this.props.sampleCount - n}
-          samples={this.props.sampleCount}
-          backward={n % 2 === 0}
-        />
-      )
-    });
 
     return this.state.visible ? (
       <div
@@ -40,7 +29,7 @@ class Track extends React.Component {
           // display: this.state.visible ? 'block' : 'none',
         }}
       >
-        {covers}
+        <Cover />
         <div className="transition-overlay"
           style={{
             animationDelay: '0s',

@@ -27,7 +27,7 @@ function App() {
     return () => {
       document.removeEventListener("keydown", playFunction, false);
     };
-  }, [escFunction]);
+  }, [playFunction]);
 
   const track = (
     <Track
