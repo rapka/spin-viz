@@ -1,30 +1,16 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
 
 import './Cover.css';
 
-function Cover(props) {
-  const spinAnimation = keyframes`
-    {
-        0% {
-            transform: rotate(${!props.backwards ? 0 : 360}deg) translate3d(0, 0, 0);
-        }
-        100% {
-            transform: rotate(${!props.backwards ? 360 : 0}deg) translate3d(0, 0, 0);
-        }
-    }
-  `;
+const Cover = (props) => {
+  const spinStyles = {};
 
-  const SpinContainer = styled.div`
-    animation: ${spinAnimation} ${props.playing ? props.rotationDuration : 0}s linear infinite;
-    position: absolute;
-  `;
+  spinStyles.animationDuration = `${props.rotationDuration}s`;
+  const classes = `cover ${props.playing ? 'cover-playing' : ''} ${props.backwards ? 'cover-reverse' : ''}`;
 
   return (
-    <div className="track">
-      <SpinContainer>
-        <img src="/cover.jpg" className="cover" />
-      </SpinContainer>
+    <div className={classes} style={spinStyles}>
+      <img src="/cover.jpg" className="cover-img"/>
     </div>
   );
 }

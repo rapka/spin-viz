@@ -2,13 +2,27 @@
   width: 600px;
   height: 600px;
   border-radius: 50%;
-}
-
-.track {
-  position: absolute;
-  height: 600px;
-  width: 600px;
-  border-radius: 50%;
   overflow: hidden;
   transform: translate3d(0, 0, 0);
+}
+
+.cover-img {
+  width: 100%;
+}
+
+.cover-playing {
+  animation: 0s linear 0s infinite reverse both running spin;
+}
+
+.cover-reverse {
+  animation-direction: reverse;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(360deg) translate3d(0, 0, 0);
+    }
+    100% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
 }
