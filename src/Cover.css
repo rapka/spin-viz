@@ -3,3 +3,12 @@
   height: 600px;
   border-radius: 50%;
 }
+
+.track {
+  position: absolute;
+  height: 600px;
+  width: 600px;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}

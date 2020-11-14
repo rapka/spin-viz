@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import set from 'lodash/set';
 
-import Track from './Track';
+import Cover from './Cover';
 import Scope from './Scope';
 import TextOverlay from './TextOverlay';
 
@@ -27,12 +27,12 @@ function App() {
     };
   }, [playFunction]);
 
-  const { artist, title, background } = config;
+  const { artist, title, background, art, scopes } = config;
 
   const bgStyles = {};
   const bgContainerStyles = {};
 
-  set(bgContainerStyles, 'animationDuration', `${background.loopSpeed}s`, '0s');
+  set(bgContainerStyles, 'animationDuration', `${background.loopDuration}s`, '0s');
 
   if (background.css) {
     bgStyles.background = background.css;
@@ -41,20 +41,16 @@ function App() {
     set(bgStyles, 'backgroundImage', `url('/${background.color})`, undefined);
   }
 
-  console.log('bgggg', bgStyles);
-
   return (
     <div className="App">
-      <Scope playing={playing} />
-      <div className={`bg-container ${background.loopSpeed ? 'bg-loop' : ''}`} style={bgContainerStyles}>
+      <Scope playing={playing} audioSrc={config.track} {...scopes} />
+      <div className={`bg-container ${background.loopDuration ? 'bg-loop' : ''}`} style={bgContainerStyles}>
         <div className="bg" style={bgStyles} />
         <div className="bg bg2" style={bgStyles} />
         <div className="bg bg3" style={bgStyles} />
       </div>
-      <div className="moon-container">
-        <div className="track-container">
-          {playing ? <Track duration={config.duration} /> : null}
-        </div>
+      <div className="track-container">
+        <Cover playing={playing} backwards={art.backwards} rotationDuration={art.rotationDuration}/>
       </div>
       <TextOverlay
         artist={artist}

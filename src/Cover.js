@@ -7,23 +7,25 @@ function Cover(props) {
   const spinAnimation = keyframes`
     {
         0% {
-            transform: rotate(${props.backward ? 0 : 360}deg) translate3d(0, 0, 0);
+            transform: rotate(${!props.backwards ? 0 : 360}deg) translate3d(0, 0, 0);
         }
         100% {
-            transform: rotate(${props.backward ? 360 : 0}deg) translate3d(0, 0, 0);
+            transform: rotate(${!props.backwards ? 360 : 0}deg) translate3d(0, 0, 0);
         }
     }
   `;
 
   const SpinContainer = styled.div`
-    animation: ${spinAnimation} ${10000 + props.sample * 2}ms linear infinite;
+    animation: ${spinAnimation} ${props.playing ? props.rotationDuration : 0}s linear infinite;
     position: absolute;
   `;
 
   return (
-    <SpinContainer>
-      <img src="/cover.jpg" className="cover" />
-    </SpinContainer>
+    <div className="track">
+      <SpinContainer>
+        <img src="/cover.jpg" className="cover" />
+      </SpinContainer>
+    </div>
   );
 }
 

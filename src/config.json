@@ -1,17 +1,22 @@
 {
 	"artist": "Steve \"Lenky\" Marsden",
 	"title": "Diwali Riddim Version (College Hill's Pon de Replay Mix)",
-	"duration": 84,
+	"track": "fullmix.mp3",
 	"scopes": {
 		"count": 2,
-		"rotateColors": true,
+		"rotateColors": false,
 		"rotationOffset": 180,
-		"colors": ["#FFFFFF", "#FFFFFF"]
+		"colors": ["#FFFFFF", "#EDD976"]
 	},
 	"background": {
-		"color": "#D9D9D9",
+		"color": "#845488",
 		"image": "",
-		"loopSpeed": 20,
-		"css": "linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c)"
+		"loopDuration": 0,
+		"css": ""
+	},
+	"art": {
+		"rotationDuration": 20,
+		"backwards": false,
+		"file": "cover.jpg"
 	}
 }

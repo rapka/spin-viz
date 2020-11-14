@@ -88,7 +88,7 @@ class Scope extends React.Component {
           rgb = hsvToRgb((rotatedH / 360),1 , 1);
           canvasCtx.strokeStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${0.8 - bassNormalized * 1.33})`;
         } else {
-          rgb = hexRgb(this.props.scopeColors[index]);
+          rgb = hexRgb(this.props.colors[index]);
           canvasCtx.strokeStyle = `rgba(${rgb.red}, ${rgb.green}, ${rgb.blue}, ${0.8 - bassNormalized * 1.33})`;
         }
 
@@ -124,7 +124,7 @@ class Scope extends React.Component {
         <canvas id="canvas"></canvas>
         <audio
           ref={this.player}
-          src="fullmix.mp3"
+          src={this.props.audioSrc}
           type="audio/mpeg"
           preload="auto"
         />
@@ -137,14 +137,15 @@ Scope.propTypes = {
   scopeCount: PropTypes.number, // number of lines to draw
   rotateColors: PropTypes.bool, // flag to automatically cycle through the rainbow
   rotationOffset: PropTypes.number, // when rotateColors is true, hue offset between different scopes (in degrees)
-  scopeColors: PropTypes.arrayOf(PropTypes.string), // when rotateColors is false, static color for each scope
+  colors: PropTypes.arrayOf(PropTypes.string), // when rotateColors is false, static color for each scope
+  audioSrc: PropTypes.string.isRequired,
 };
 
 Scope.defaultProps = {
   scopeCount: 2,
   rotateColors: true,
   rotationOffset: 180,
-  scopeColors: ['#FFFFFF', '#FFFFFF'],
+  colors: ['#FFFFFF', '#FFFFFF'],
 }
 
 export default Scope;
