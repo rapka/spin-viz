@@ -10,7 +10,7 @@ const Cover = (props) => {
 
   return (
     <div className={classes} style={spinStyles}>
-      <img src="/cover.jpg" className="cover-img"/>
+      <img src={ props.coverUrl || '/cover.jpg'} className="cover-img"/>
     </div>
   );
 }

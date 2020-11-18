@@ -50,7 +50,12 @@ function App() {
         <div className="bg bg3" style={bgStyles} />
       </div>
       <div className="track-container">
-        <Cover playing={playing} backwards={art.backwards} rotationDuration={art.rotationDuration}/>
+        <Cover
+         playing={playing}
+         backwards={art.backwards}
+         rotationDuration={art.rotationDuration}
+         coverUrl={art.file}
+        />
       </div>
       <TextOverlay
         artist={artist}

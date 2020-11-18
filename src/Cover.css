@@ -15,7 +15,7 @@
 }
 
 .cover-reverse {
-  animation-direction: reverse;
+  animation-direction: normal;
 }
 
 @keyframes spin {

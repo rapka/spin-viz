@@ -1,22 +1,22 @@
 {
-	"artist": "Steve \"Lenky\" Marsden",
-	"title": "Diwali Riddim Version (College Hill's Pon de Replay Mix)",
+	"artist": "Aphex Twin",
+	"title": "Xtal (College Hill's Deep House Edit)",
 	"track": "fullmix.mp3",
 	"scopes": {
 		"count": 2,
 		"rotateColors": false,
 		"rotationOffset": 180,
-		"colors": ["#FFFFFF", "#EDD976"]
+		"colors": ["#FFFFFF", "#4C2D2D"]
 	},
 	"background": {
-		"color": "#845488",
+		"color": "#6C4D4D",
 		"image": "",
 		"loopDuration": 0,
 		"css": ""
 	},
 	"art": {
-		"rotationDuration": 20,
-		"backwards": false,
-		"file": "cover.jpg"
+		"rotationDuration": 60,
+		"backwards": true,
+		"file": "cover.png"
 	}
 }
