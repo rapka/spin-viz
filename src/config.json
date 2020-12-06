@@ -1,22 +1,22 @@
 {
-	"artist": "Aphex Twin",
-	"title": "Xtal (College Hill's Deep House Edit)",
-	"track": "fullmix.mp3",
+	"artist": "Gunna feat. Young Thug",
+	"title": "3 Headed Snake (College Hill's Hydra Mix)",
+	"track": "track.wav",
 	"scopes": {
 		"count": 2,
 		"rotateColors": false,
 		"rotationOffset": 180,
-		"colors": ["#FFFFFF", "#4C2D2D"]
+		"colors": ["#222222", "#00DD00"]
 	},
 	"background": {
 		"color": "#6C4D4D",
-		"image": "",
-		"loopDuration": 0,
+		"image": "snek.png",
+		"loopDuration": 120,
 		"css": ""
 	},
 	"art": {
-		"rotationDuration": 60,
-		"backwards": true,
+		"rotationDuration": 240,
+		"backwards": false,
 		"file": "cover.png"
 	}
 }

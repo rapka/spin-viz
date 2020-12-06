@@ -38,7 +38,7 @@ function App() {
     bgStyles.background = background.css;
   } else {
     set(bgStyles, 'backgroundColor', background.color, undefined);
-    set(bgStyles, 'backgroundImage', `url('/${background.color})`, undefined);
+    set(bgStyles, 'backgroundImage', `url('/${background.image}')`, undefined);
   }
 
   return (
@@ -48,6 +48,7 @@ function App() {
         <div className="bg" style={bgStyles} />
         <div className="bg bg2" style={bgStyles} />
         <div className="bg bg3" style={bgStyles} />
+        <div className="bg bg4" style={bgStyles} />
       </div>
       <div className="track-container">
         <Cover

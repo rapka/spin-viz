@@ -10,7 +10,7 @@
 .bg-container {
   z-index: -1;
   position: absolute;
-  width: 100%;
+  width: 1190px;
   height: 100%;
 }
 
@@ -23,18 +23,24 @@
 
 .bg {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 1190px;
+  height: 1080px;
+  background-size: contain;
 }
 
 .bg2 {
-  transform: translateX(calc(-100% + 1px));
+  transform: translateX(-1189px);
 }
 
 
 .bg3 {
-  transform: translateX(calc(100% - 1px));
+  transform: translateX(1189px);
 }
+
+.bg4 {
+  transform: translateX(2378px);
+}
+
 
 .moon {
   z-index: 3;
