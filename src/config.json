@@ -1,16 +1,16 @@
 {
-	"artist": "Gunna feat. Young Thug",
-	"title": "3 Headed Snake (College Hill's Hydra Mix)",
+	"artist": "Beyoncé",
+	"title": "Sorry (College Hill Remix)",
 	"track": "track.wav",
 	"scopes": {
 		"count": 2,
 		"rotateColors": false,
 		"rotationOffset": 180,
-		"colors": ["#222222", "#00DD00"]
+		"colors": ["#15514B", "#8F8D5C"]
 	},
 	"background": {
 		"color": "#6C4D4D",
-		"image": "snek.png",
+		"image": "sorry.png",
 		"loopDuration": 120,
 		"css": ""
 	},

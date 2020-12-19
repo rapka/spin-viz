@@ -1,0 +1,12 @@
+.bg-loop {
+  animation-name: slide;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.bg {
+  height: 100vh;
+  background-size: contain;
+  background-repeat: repeat-x;
+}

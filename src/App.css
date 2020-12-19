@@ -7,41 +7,6 @@
   position: relative;
 }
 
-.bg-container {
-  z-index: -1;
-  position: absolute;
-  width: 1190px;
-  height: 100%;
-}
-
-.bg-loop {
-  animation-name: slide;
-  animation-delay: 0s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-
-.bg {
-  position: absolute;
-  width: 1190px;
-  height: 1080px;
-  background-size: contain;
-}
-
-.bg2 {
-  transform: translateX(-1189px);
-}
-
-
-.bg3 {
-  transform: translateX(1189px);
-}
-
-.bg4 {
-  transform: translateX(2378px);
-}
-
-
 .moon {
   z-index: 3;
   width: 600px;
@@ -65,10 +30,10 @@
 
 @keyframes slide {
   0% {
-    transform: translate3d(-100%, 0, 0);
+    background-position: 0% 0%;
   }
 
   100% {
-    transform: translate3d(100%, 0, 0);
+    background-position: 100% 0%;
   }
 }

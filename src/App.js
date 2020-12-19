@@ -4,6 +4,7 @@ import set from 'lodash/set';
 import Cover from './Cover';
 import Scope from './Scope';
 import TextOverlay from './TextOverlay';
+import Background from './Background';
 
 import config from './config';
 
@@ -27,29 +28,12 @@ function App() {
     };
   }, [playFunction]);
 
-  const { artist, title, background, art, scopes } = config;
-
-  const bgStyles = {};
-  const bgContainerStyles = {};
-
-  set(bgContainerStyles, 'animationDuration', `${background.loopDuration}s`, '0s');
-
-  if (background.css) {
-    bgStyles.background = background.css;
-  } else {
-    set(bgStyles, 'backgroundColor', background.color, undefined);
-    set(bgStyles, 'backgroundImage', `url('/${background.image}')`, undefined);
-  }
+  const { artist, title, art, scopes } = config;
 
   return (
     <div className="App">
       <Scope playing={playing} audioSrc={config.track} {...scopes} />
-      <div className={`bg-container ${background.loopDuration ? 'bg-loop' : ''}`} style={bgContainerStyles}>
-        <div className="bg" style={bgStyles} />
-        <div className="bg bg2" style={bgStyles} />
-        <div className="bg bg3" style={bgStyles} />
-        <div className="bg bg4" style={bgStyles} />
-      </div>
+      <Background />
       <div className="track-container">
         <Cover
          playing={playing}
