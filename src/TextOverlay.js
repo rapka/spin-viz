@@ -1,16 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import config from './config';
 
 import './TextOverlay.css';
 
 const TextOverlay = (props) => {
+  const color = config.textColor || '#FFFFFF';
+
   return (
-    <div className="text-container">
+    <div className="text-container" style={{ color }}>
       <div className="artist">
-        <span className="text-white">{props.artist}</span>
+        {props.artist}
       </div>
       <div className="album">
-        <span className="text-white">{props.title}</span>
+        {props.title}
       </div>
     </div>
   );

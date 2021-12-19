@@ -16,17 +16,9 @@
   font-weight: bold;
   letter-spacing: -10px;
   word-spacing: 10px;
-  display: flex;
-  flex: 0 1 660px;
+  display: block;
   align-items: center;
-}
-
-.text-black {
-  color: black;
-}
-
-.text-white {
-  color: white;
+  text-shadow: 1px 0 4px black;
 }
 
 .artist {
