@@ -5,8 +5,32 @@
   animation-timing-function: linear;
 }
 
+.bg-vertical {
+  animation-name: slide-vertical !important;
+}
+
 .bg {
   height: 100vh;
   background-size: contain;
-  background-repeat: repeat-x;
+  background-repeat: repeat;
+}
+
+@keyframes slide {
+  0% {
+    background-position: -50vh 0%;
+  }
+
+  100% {
+    background-position: 50vh 0%;
+  }
+}
+
+@keyframes slide-vertical {
+  0% {
+    background-position: 0% -50vh;
+  }
+
+  100% {
+    background-position: 0% 50vh;
+  }
 }

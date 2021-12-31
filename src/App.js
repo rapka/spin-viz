@@ -5,6 +5,7 @@ import Cover from './Cover';
 import Scope from './Scope';
 import TextOverlay from './TextOverlay';
 import Background from './Background';
+import Snow from './Snow';
 
 import config from './config';
 
@@ -34,14 +35,12 @@ function App() {
     <div className="App">
       <Scope playing={playing} audioSrc={config.track} {...scopes} />
       <Background />
-      <div className="track-container">
-        <Cover
-         playing={playing}
-         backwards={art.backwards}
-         rotationDuration={art.rotationDuration}
-         coverUrl={art.file}
-        />
-      </div>
+      <Cover
+        playing={playing}
+        backwards={art.backwards}
+        rotationDuration={art.rotationDuration}
+        coverUrl={art.file}
+      />
       <TextOverlay
         artist={artist}
         title={title}

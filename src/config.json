@@ -1,22 +1,25 @@
 {
-	"artist": "Beyoncé",
-	"title": "Sorry (College Hill Remix)",
-	"track": "track.wav",
+	"artist": "LV & Joshua Idehen",
+	"title": "Imminent (College Hill's Fantasy Violence Remix)",
+	"track": "imminent.wav",
+	"textColor": "#EEEEEE",
 	"scopes": {
 		"count": 2,
 		"rotateColors": false,
 		"rotationOffset": 180,
-		"colors": ["#15514B", "#8F8D5C"]
+		"colors": ["#111111", "#DDDD00", "#AA0000"]
 	},
 	"background": {
 		"color": "#6C4D4D",
-		"image": "sorry.png",
-		"loopDuration": 120,
-		"css": ""
+		"image": "buzz.jpg",
+		"loopDuration": 0,
+		"css": "",
+		"vertical": false
 	},
 	"art": {
-		"rotationDuration": 240,
+		"rotationDuration": 0,
 		"backwards": false,
-		"file": "cover.png"
+		"file": "",
+		"blendMode": "darken"
 	}
 }

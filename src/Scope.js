@@ -79,7 +79,7 @@ class Scope extends React.Component {
 
       const Y_OFFSET = 64;
 
-      times(this.props.scopeCount, index => {
+      times(this.props.colors.length, index => {
         const rotatedH = ((H + this.props.rotationOffset) * index) % 360;
 
         let rgb = hsvToRgb((rotatedH / 360),1 , 1);
@@ -134,7 +134,6 @@ class Scope extends React.Component {
 }
 
 Scope.propTypes = {
-  scopeCount: PropTypes.number, // number of lines to draw
   rotateColors: PropTypes.bool, // flag to automatically cycle through the rainbow
   rotationOffset: PropTypes.number, // when rotateColors is true, hue offset between different scopes (in degrees)
   colors: PropTypes.arrayOf(PropTypes.string), // when rotateColors is false, static color for each scope
@@ -142,7 +141,6 @@ Scope.propTypes = {
 };
 
 Scope.defaultProps = {
-  scopeCount: 2,
   rotateColors: true,
   rotationOffset: 180,
   colors: ['#FFFFFF', '#FFFFFF'],

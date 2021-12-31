@@ -1,9 +1,6 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React from 'react';
+import classNames from 'classnames';
 import set from 'lodash/set';
-
-import Cover from './Cover';
-import Scope from './Scope';
-import TextOverlay from './TextOverlay';
 
 import config from './config';
 
@@ -11,23 +8,32 @@ import './Background.css';
 
 function Background(props) {
   const { background } = config;
+  const { loopDuration, vertical, color, image, css } = background;
+
+  console.log('wttf', background, vertical);
 
   const bgStyles = {};
   const bgContainerStyles = {};
 
-  set(bgStyles, 'animationDuration', `${background.loopDuration}s`, '0s');
-  set(bgStyles, 'animationDelay', `${background.loopDuration / -2}s`, '0s');
+  set(bgStyles, 'animationDuration', `${loopDuration}s`, '0s');
+  //set(bgStyles, 'animationDelay', `${background.loopDuration / -2}s`, '0s');
 
-  if (background.css) {
-    bgStyles.background = background.css;
+  if (css) {
+    bgStyles.background = css;
   } else {
-    set(bgStyles, 'backgroundColor', background.color, undefined);
-    set(bgStyles, 'backgroundImage', `url('/${background.image}')`, undefined);
+    set(bgStyles, 'backgroundColor', color, undefined);
+    set(bgStyles, 'backgroundImage', `url('/${image}')`, undefined);
   }
+
+  const bgClasses = classNames({
+    bg: true,
+    'bg-loop': loopDuration,
+    'bg-vertical': vertical
+  })
 
   return (
     <div className="bg-container" style={bgContainerStyles}>
-      <div className={`bg ${background.loopDuration ? 'bg-loop' : ''}`} style={bgStyles} />
+      <div className={bgClasses} style={bgStyles} />
     </div>
   );
 }

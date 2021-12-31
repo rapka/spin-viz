@@ -4,6 +4,20 @@
   border-radius: 50%;
   overflow: hidden;
   transform: translate3d(0, 0, 0);
+  background-size: contain;
+}
+
+.cover-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: translate3d(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  position: absolute;
+  top: 0;
 }
 
 .cover-img {
@@ -26,3 +40,4 @@
         transform: rotate(0deg) translate3d(0, 0, 0);
     }
 }
+
