@@ -51,6 +51,7 @@ class Scope extends React.Component {
     const bassArray = new Uint8Array(bufferLength);
 
     canvasCtx.clearRect(0, 0, WIDTH, HEIGHT);
+    const overlayElem = document.getElementById('text-overlay');
 
     const draw = () => {
       HEIGHT = window.innerHeight;
@@ -73,6 +74,10 @@ class Scope extends React.Component {
       bassValue = Math.max(0, 10 * (Math.exp(bassValue * 0.02) - 2));
       const bassNormalized = Math.min(bassValue / 1500, 1) / 2;
 
+
+      window.bassNormalized = bassNormalized;
+      overlayElem.style.transform = `scale(${1 + bassNormalized * 0.1})`;
+      // overlayElem.style.opacity = 1 - bassNormalized * 1.33;
       canvasCtx.fillStyle = 'rgba(200, 200, 200, 0)';
       canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
       canvasCtx.lineWidth = Math.max(bassValue / 100, 2);

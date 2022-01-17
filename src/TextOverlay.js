@@ -8,7 +8,7 @@ const TextOverlay = (props) => {
   const color = config.textColor || '#FFFFFF';
 
   return (
-    <div className="text-container" style={{ color }}>
+    <div className="text-container" id="text-overlay" style={{ color }}>
       <div className="artist">
         {props.artist}
       </div>

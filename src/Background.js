@@ -10,8 +10,6 @@ function Background(props) {
   const { background } = config;
   const { loopDuration, vertical, color, image, css } = background;
 
-  console.log('wttf', background, vertical);
-
   const bgStyles = {};
   const bgContainerStyles = {};
 
@@ -22,7 +20,7 @@ function Background(props) {
     bgStyles.background = css;
   } else {
     set(bgStyles, 'backgroundColor', color, undefined);
-    set(bgStyles, 'backgroundImage', `url('/${image}')`, undefined);
+    set(bgStyles, 'backgroundImage', `url('/${image}')`, '');
   }
 
   const bgClasses = classNames({

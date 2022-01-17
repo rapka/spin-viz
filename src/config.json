@@ -1,17 +1,17 @@
 {
-	"artist": "LV & Joshua Idehen",
-	"title": "Imminent (College Hill's Fantasy Violence Remix)",
-	"track": "imminent.wav",
-	"textColor": "#EEEEEE",
+	"artist": "Basshunter",
+	"title": "I’m Your Basscreator (College Hill Remix)",
+	"track": "hunter.wav",
+	"textColor": "#FFFFFF",
 	"scopes": {
-		"count": 2,
+		"count": 3,
 		"rotateColors": false,
 		"rotationOffset": 180,
-		"colors": ["#111111", "#DDDD00", "#AA0000"]
+		"colors": ["#101010", "#DD0000", "#c0c0c0"]
 	},
 	"background": {
-		"color": "#6C4D4D",
-		"image": "buzz.jpg",
+		"color": "#FFFFFF",
+		"image": "hunter.png",
 		"loopDuration": 0,
 		"css": "",
 		"vertical": false
