@@ -11,8 +11,12 @@
 
 .bg {
   height: 100vh;
+  /*width: 100vw;*/
   background-size: contain;
   background-repeat: repeat;
+
+  /*image-rendering: pixelated;*/
+  /*filter: hue-rotate(0.375turn);*/
 }
 
 @keyframes slide {

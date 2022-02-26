@@ -30,7 +30,7 @@ function Background(props) {
   })
 
   return (
-    <div className="bg-container" style={bgContainerStyles}>
+    <div className="bg-container" id="bg" style={bgContainerStyles}>
       <div className={bgClasses} style={bgStyles} />
     </div>
   );

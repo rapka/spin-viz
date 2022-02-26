@@ -12,7 +12,7 @@ const Cover = (props) => {
 
 
   return (
-  	<div className="cover-container" style={{ mixBlendMode: config.art.blendMode }}>
+  	<div id="cover-container" className="cover-container" style={{ mixBlendMode: config.art.blendMode }}>
 		<div className={classes} style={spinStyles} />
     </div>
   );

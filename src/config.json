@@ -1,17 +1,20 @@
 {
-	"artist": "Basshunter",
-	"title": "I’m Your Basscreator (College Hill Remix)",
-	"track": "hunter.wav",
-	"textColor": "#FFFFFF",
+	"artist": "Smashing Pumpkins",
+	"title": "Disarm College Hill Peace Edit",
+	"track": "disarm.wav",
+	"artistTextColor": "#43316F",
+	"artistTextShadowColor": "#53417F",
+	"titleTextColor": "#F16E1C",
+	"titleTextShadowColor": "#F16E1C",
 	"scopes": {
 		"count": 3,
 		"rotateColors": false,
 		"rotationOffset": 180,
-		"colors": ["#101010", "#DD0000", "#c0c0c0"]
+		"colors": ["#F16E1C", "#313080", "#864889", "#CD3E1E"]
 	},
 	"background": {
-		"color": "#FFFFFF",
-		"image": "hunter.png",
+		"color": "",
+		"image": "disarm.png",
 		"loopDuration": 0,
 		"css": "",
 		"vertical": false
@@ -20,6 +23,6 @@
 		"rotationDuration": 0,
 		"backwards": false,
 		"file": "",
-		"blendMode": "darken"
+		"blendMode": "normal"
 	}
 }
