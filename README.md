@@ -1,16 +1,15 @@
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React-based music visualizer. It was used for creating many of the music videos on the [College Hill Youtube channel](https://youtube.com/playlist?list=PLo3CZgeQIw_qrPqTIYZDeX2gyGVEwv8GB)
 
-## Available Scripts
+## Setup
 
-In the project directory, you can run:
+```
+nvm use
+npm ci
+npm start
+```
 
-### `npm start`
+Once running, your browser should automatically open to [http://localhost:3000](http://localhost:3000).
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Use the spacebar to being playback. There's currently no support for pausing and replaying a song requires a page refresh.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-THEN PRESS SPACE BAR TO PLAY

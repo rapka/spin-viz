@@ -95,7 +95,7 @@ class Scope extends React.Component {
       canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
       canvasCtx.lineWidth = Math.max(bassValue / 100, 2);
 
-      const Y_OFFSET = 64;
+      const Y_OFFSET = 180;
 
       times(this.props.colors.length, index => {
         const rotatedH = ((H + this.props.rotationOffset) * index) % 360;

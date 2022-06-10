@@ -4,7 +4,7 @@
   justify-content: space-between;
   position: absolute;
   font-size: 5.5rem;
-  bottom: 30px;
+  bottom: 260px;
   width: 100%;
   z-index: 10;
   /*mix-blend-mode: exclusion;*/
@@ -12,6 +12,7 @@
 
 .artist, .album {
   font-family: 'Bungee Hairline', cursive;
+  /*font-family: 'Broken 15';*/
   line-height: 0.8;
   text-transform: uppercase;
   font-weight: bold;
@@ -26,6 +27,7 @@
   text-align: left;
   padding-left: 40px;
   padding-right: 10px;
+  max-width: 620px;
 }
 .album {
   text-align: right;
