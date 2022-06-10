@@ -1,5 +1,7 @@
 
-This is a React-based music visualizer. It was used for creating many of the music videos on the [College Hill Youtube channel](https://youtube.com/playlist?list=PLo3CZgeQIw_qrPqTIYZDeX2gyGVEwv8GB)
+This is a React-based music visualizer. It was used for creating many of the music videos on the [College Hill Youtube channel](https://youtube.com/playlist?list=PLo3CZgeQIw_qrPqTIYZDeX2gyGVEwv8GB).
+
+A similar version of this visualizer made specifically for the 2019 College Hill album Overground Underground is available [here](https://github.com/rapka/over-under).
 
 ## Setup
 
