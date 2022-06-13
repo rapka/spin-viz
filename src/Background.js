@@ -14,7 +14,6 @@ function Background(props) {
   const bgContainerStyles = {};
 
   set(bgStyles, 'animationDuration', `${loopDuration}s`, '0s');
-  //set(bgStyles, 'animationDelay', `${background.loopDuration / -2}s`, '0s');
 
   if (css) {
     bgStyles.background = css;

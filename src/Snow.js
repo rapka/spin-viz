@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Snow.css';
 
-// Only use for Carti RMX
+// Only used for Playboi Carti - Long Time Remix
 const Snow = (props) => {
   return (
       <img src={'/snow.gif'} className="snow-img"/>

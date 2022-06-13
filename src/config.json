@@ -1,28 +1,25 @@
 {
-	"artist": "Smashing Pumpkins",
-	"title": "Disarm College Hill Peace Edit",
-	"track": "disarm.wav",
-	"artistTextColor": "#43316F",
-	"artistTextShadowColor": "#53417F",
-	"titleTextColor": "#F16E1C",
-	"titleTextShadowColor": "#F16E1C",
+	"artist": "",
+	"title": "",
+	"track": "passion.wav",
+	"textColor": "#FFFFFF",
 	"scopes": {
 		"count": 3,
 		"rotateColors": false,
 		"rotationOffset": 180,
-		"colors": ["#F16E1C", "#313080", "#864889", "#CD3E1E"]
+		"colors": ["#FFFFFF", "#FFFFFF", "#888888"]
 	},
 	"background": {
-		"color": "",
-		"image": "disarm.png",
+		"color": "#000000",
+		"image": "",
 		"loopDuration": 0,
 		"css": "",
 		"vertical": false
 	},
 	"art": {
-		"rotationDuration": 0,
+		"rotationDuration": 66,
 		"backwards": false,
-		"file": "",
+		"file": "passion.png",
 		"blendMode": "normal"
 	}
 }

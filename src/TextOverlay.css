@@ -7,7 +7,6 @@
   bottom: 260px;
   width: 100%;
   z-index: 10;
-  /*mix-blend-mode: exclusion;*/
 }
 
 .artist, .album {

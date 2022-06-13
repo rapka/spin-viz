@@ -89,7 +89,6 @@ class Scope extends React.Component {
       overlayElem.style.transform = `translateY(${midValue * .15}px)`;
 
       coverElem.style.filter = `blur(${bassValue * 0.0015}px)`;
-      // coverElem.style.transform = `translateY(${midValue * .15}px)`;
 
       canvasCtx.fillStyle = 'rgba(200, 200, 200, 0)';
       canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
@@ -98,11 +97,11 @@ class Scope extends React.Component {
       const Y_OFFSET = 180;
 
       times(this.props.colors.length, index => {
-        const rotatedH = ((H + this.props.rotationOffset) * index) % 360;
+        let rgb;
 
-        let rgb = hsvToRgb((rotatedH / 360),1 , 1);
+        if (this.props.rotationOffset) {
+          const rotatedH = ((H + this.props.rotationOffset) * index) % 360;
 
-        if (this.props.rotateColors) {
           rgb = hsvToRgb((rotatedH / 360),1 , 1);
           canvasCtx.strokeStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${0.8 - bassNormalized * 1.33})`;
         } else {
@@ -152,15 +151,13 @@ class Scope extends React.Component {
 }
 
 Scope.propTypes = {
-  rotateColors: PropTypes.bool, // flag to automatically cycle through the rainbow
-  rotationOffset: PropTypes.number, // when rotateColors is true, hue offset between different scopes (in degrees)
-  colors: PropTypes.arrayOf(PropTypes.string), // when rotateColors is false, static color for each scope
+  rotationOffset: PropTypes.number, // hue offset between different scopes (in degrees)
+  colors: PropTypes.arrayOf(PropTypes.string), // static color for each scope
   audioSrc: PropTypes.string.isRequired,
 };
 
 Scope.defaultProps = {
-  rotateColors: true,
-  rotationOffset: 180,
+  rotationOffset: 0,
   colors: ['#FFFFFF', '#FFFFFF'],
 }
 

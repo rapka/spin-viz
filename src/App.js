@@ -5,7 +5,6 @@ import Cover from './Cover';
 import Scope from './Scope';
 import TextOverlay from './TextOverlay';
 import Background from './Background';
-import Snow from './Snow';
 
 import config from './config';
 
